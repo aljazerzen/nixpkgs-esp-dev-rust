@@ -73,13 +73,36 @@ rec {
     };
   };
 
+  esp-pylib = buildPythonPackage rec {
+    pname = "esp-pylib";
+    version = "1.1.4";
+
+    src = fetchPypi {
+      pname = "esp_pylib";
+      inherit version;
+      sha256 = "sha256-3L1xfooNcTnRjCg1K2N/DucPyOQPDbHAkHlsn60WyJo=";
+    };
+
+    pyproject = true;
+    build-system = [ setuptools ];
+    doCheck = false;
+
+    propagatedBuildInputs = [
+      rich
+    ];
+
+    meta = {
+      homepage = "https://github.com/espressif/esp-pylib";
+    };
+  };
+
   esptool = buildPythonPackage rec {
     pname = "esptool";
-    version = "5.2.0";
+    version = "5.4.0";
 
     src = fetchPypi {
       inherit pname version;
-      sha256 = "sha256-nDVbfWMxzJKXnMcQrlxB9Zgw0eop7CTEZ8YAWgksBtY=";
+      sha256 = "sha256-/XVlmNsKJsmXX6GFEbCGh8VL8s5zIu3oDPH1EX2tH1A=";
     };
 
     pyproject = true;
@@ -95,6 +118,7 @@ rec {
       intelhex
       rich-click
       click
+      esp-pylib
     ];
 
     meta = {
