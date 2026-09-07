@@ -19,6 +19,8 @@ rec {
       sha256 = "sha256-rHZHlvRKMZvvjf3S+nU2lCDXt0Ll4Ek04rdhtfIQ1R0=";
     };
 
+    pyproject = true;
+    build-system = [ setuptools ];
     doCheck = false;
 
     propagatedBuildInputs = [
