@@ -14,7 +14,6 @@
 , stdenv
 , lib
 , fetchFromGitHub
-, makeWrapper
 , callPackage
 
 , python3
@@ -58,8 +57,6 @@ let
         with pythonPackages;
         with customPythonPackages;
         [
-          # This list is from `tools/requirements/requirements.core.txt` in the
-          # ESP-IDF checkout.
           setuptools
           click
           pyserial
@@ -88,8 +85,6 @@ stdenv.mkDerivation rec {
 
   # This is so that downstream derivations will have IDF_PATH set.
   setupHook = ./setup-hook.sh;
-
-  nativeBuildInputs = [ makeWrapper ];
 
   propagatedBuildInputs = [
     # This is in propagatedBuildInputs so that downstream derivations will run

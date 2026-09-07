@@ -1,24 +1,13 @@
 {
   version ? "1.97.0.0",
   callPackage,
-  rust,
   lib,
   stdenv,
   fetchurl,
 }:
 let
-  component = import { };
-  # Remove keys from attrsets whose value is null.
   removeNulls = set: removeAttrs set (lib.filter (name: set.${name} == null) (lib.attrNames set));
-  # FIXME: https://github.com/NixOS/nixpkgs/pull/146274
-  toRustTarget =
-    platform:
-    if platform.isWasi then "${platform.parsed.cpu.name}-wasi" else rust.toRustTarget platform;
-  mkComponentSet = callPackage ./rust/mk-component-set.nix {
-    inherit toRustTarget removeNulls;
-    # src =
-
-  };
+  mkComponentSet = callPackage ./rust/mk-component-set.nix { inherit removeNulls; };
   mkAggregated = callPackage ./rust/mk-aggregated.nix { };
 
   selComponents = mkComponentSet {

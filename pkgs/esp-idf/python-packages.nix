@@ -1,7 +1,3 @@
-# Versions based on
-# https://dl.espressif.com/dl/esp-idf/espidf.constraints.v5.1.txt
-# on 2023-07-05.
-
 { stdenv
 , lib
 , fetchPypi
@@ -22,14 +18,6 @@ rec {
       rev = "v${version}";
       sha256 = "sha256-rHZHlvRKMZvvjf3S+nU2lCDXt0Ll4Ek04rdhtfIQ1R0=";
     };
-
-    # For some reason, this 404s.
-    /*
-      src = fetchPypi {
-      inherit pname version;
-      sha256 = "sha256-12ozmQ4Eb5zL4rtNHSFjEynfObUkYlid1PgMDVmRkwY=";
-      };
-    */
 
     doCheck = false;
 
@@ -179,9 +167,6 @@ rec {
     };
 
     doCheck = false;
-
-    propagatedBuildInputs = [
-    ];
 
     meta = {
       homepage = "https://github.com/espressif/freertos-gdb";

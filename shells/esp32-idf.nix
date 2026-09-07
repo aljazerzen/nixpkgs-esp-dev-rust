@@ -1,9 +1,6 @@
 { pkgs ? import ../default.nix }:
-
-pkgs.mkShell {
+import ./esp-idf.nix {
+  inherit pkgs;
+  package = pkgs.esp-idf-esp32;
   name = "esp-idf-esp32-shell";
-
-  buildInputs = with pkgs; [
-    esp-idf-esp32
-  ];
 }

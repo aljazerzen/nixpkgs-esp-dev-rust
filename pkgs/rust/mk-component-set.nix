@@ -1,6 +1,6 @@
 # Define component derivations and special treatments.
 { lib, stdenv, stdenvNoCC, gnutar, autoPatchelfHook, bintools, zlib, gccForLibs
-, toRustTarget, removeNulls
+, removeNulls
 }:
 # Release version of the whole set.
 { version

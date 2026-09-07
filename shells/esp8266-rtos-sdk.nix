@@ -1,9 +1,6 @@
 { pkgs ? import ../default.nix }:
-
-pkgs.mkShell {
+import ./esp-idf.nix {
+  inherit pkgs;
+  package = pkgs.esp8266-rtos-sdk;
   name = "esp8266-rtos-sdk-shell";
-
-  buildInputs = with pkgs; [
-    esp8266-rtos-sdk
-  ];
 }

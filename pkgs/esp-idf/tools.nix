@@ -41,9 +41,6 @@ let
     mkToolDerivation {
       pname = toolSpec.name;
 
-      # NOTE: tools.json does not separately specify the versions of tools,
-      # so short of extracting the versions from the tarball URLs, we will
-      # just put the ESP-IDF version as the tool version.
       version = versionSuffix;
 
       description = toolSpec.description;
@@ -98,9 +95,6 @@ let
       ''wrapProgram $FILE_PATH ${lib.strings.concatStringsSep " " exportVarsWrapperArgsList}'';
       in ''
         cp -r . $out
-
-        # For setting exported variables (see exportVarsWrapperArgsList).
-        TOOL_PATH=$out
 
         for FILE in $(ls $out/bin); do
           FILE_PATH="$out/bin/$FILE"

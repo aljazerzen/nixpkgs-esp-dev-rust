@@ -39,12 +39,11 @@ rec {
     ];
   };
 
-  # LLVM
   llvm-xtensa = prev.callPackage ./pkgs/llvm-xtensa-bin.nix { };
   llvm-xtensa-lib = prev.callPackage ./pkgs/llvm-xtensa-lib.nix { };
-
-  # Rust
-  rust-xtensa = (import ./pkgs/rust-xtensa-bin.nix { rust = prev.rust; callPackage = prev.callPackage; lib = prev.lib; stdenv = prev.stdenv; fetchurl = prev.fetchurl; });
+  rust-xtensa = import ./pkgs/rust-xtensa-bin.nix {
+    inherit (prev) callPackage lib stdenv fetchurl;
+  };
 
   esp-idf-esp32c6 = esp-idf-riscv;
 

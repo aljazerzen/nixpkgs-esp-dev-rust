@@ -3,17 +3,7 @@
 , stdenv
 , lib
 , fetchurl
-, makeWrapper
-, buildFHSUserEnv
 }:
-
-let
-  fhsEnv = buildFHSUserEnv {
-    name = "xtensa-toolchain-env";
-    targetPkgs = pkgs: with pkgs; [ zlib libxml2 ];
-    runScript = "";
-  };
-in
 
 assert stdenv.system == "x86_64-linux";
 
@@ -24,8 +14,6 @@ stdenv.mkDerivation rec {
     url = "https://github.com/espressif/llvm-project/releases/download/esp-${version}/libs-clang-esp-${version}-x86_64-linux-gnu.tar.xz";
     inherit hash;
   };
-
-  buildInputs = [ makeWrapper ];
 
   phases = [ "unpackPhase" "installPhase" ];
 
