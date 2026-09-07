@@ -59,6 +59,8 @@ rec {
       sha256 = "sha256-hQkXnGoAXCLk/PV7Y+C0hOgXGRY77zbIp2ZDC0cxfLo=";
     };
 
+    pyproject = true;
+    build-system = [ setuptools ];
     doCheck = false;
 
     propagatedBuildInputs = [
@@ -74,13 +76,15 @@ rec {
 
   esptool = buildPythonPackage rec {
     pname = "esptool";
-    version = "4.6.2";
+    version = "5.4.0";
 
     src = fetchPypi {
       inherit pname version;
-      sha256 = "sha256-VJ75Pu9C7n6UYs5aU8Ft96DHHZGz934Z7BV0mATN8wA=";
+      sha256 = "sha256-/XVlmNsKJsmXX6GFEbCGh8VL8s5zIu3oDPH1EX2tH1A=";
     };
 
+    pyproject = true;
+    build-system = [ setuptools ];
     doCheck = false;
 
     propagatedBuildInputs = [
@@ -106,6 +110,8 @@ rec {
       sha256 = "sha256-s8ZXt6cf5w2pZSxQNIs/SODAUvHNgxyQ+onaCa7UbFA=";
     };
 
+    pyproject = true;
+    build-system = [ setuptools ];
     doCheck = false;
 
     propagatedBuildInputs = [
@@ -126,6 +132,8 @@ rec {
       sha256 = "sha256-c62X3ZHRShhbAFmuPc/d2keqE9T9SXYIlJTyn32LPaE=";
     };
 
+    pyproject = true;
+    build-system = [ setuptools ];
     doCheck = false;
 
     propagatedBuildInputs = [
@@ -148,6 +156,8 @@ rec {
       sha256 = "sha256-OzthhzKGjyqDJrmJWs4LMkHz0rAwho+3Pyc2BYFK0EU=";
     };
 
+    pyproject = true;
+    build-system = [ setuptools ];
     doCheck = false;
 
     propagatedBuildInputs = [
@@ -168,6 +178,8 @@ rec {
       sha256 = "sha256-o0ZoTy7OLVnrhSepya+MwaILgJSojs2hfmI86D9C3cs=";
     };
 
+    pyproject = true;
+    build-system = [ setuptools ];
     doCheck = false;
 
     meta = {
