@@ -1,5 +1,5 @@
 {
-  version ? "1.86.0.0",
+  version ? "1.97.0.0",
   callPackage,
   rust,
   lib,
@@ -28,11 +28,11 @@ let
     srcs = {
       rustc = fetchurl {
         url = "https://github.com/esp-rs/rust-build/releases/download/v${version}/rust-${version}-x86_64-unknown-linux-gnu.tar.xz";
-        hash = "sha256-CqqIgIvYfI10aXTRpS3TnyaMCpsRtdCaMnW3r+qN1V0=";
+        hash = "sha256-qZv+5pIh6f9thjiPaBHuaIzUBeagQAo80XhOjUY+nZk=";
       };
       rust-src = fetchurl {
         url = "https://github.com/esp-rs/rust-build/releases/download/v${version}/rust-src-${version}.tar.xz";
-        hash = "sha256-EPoxNiYUk6XZfU886bmLruXMWCiXEf5vJCSY/09lspo=";
+        hash = "sha256-Vo1oi5+PMy7E0EZXVE+tI+mc4R6ebPWDWXnmiijGi3M=";
       };
     };
   };
@@ -41,7 +41,7 @@ in
 assert stdenv.system == "x86_64-linux";
 mkAggregated {
   pname = "rust-xtensa";
-  date = "2025-06-07";
+  date = "2026-07-08";
   inherit version;
   availableComponents = selComponents;
   selectedComponents = [

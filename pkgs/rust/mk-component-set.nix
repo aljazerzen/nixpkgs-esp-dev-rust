@@ -76,7 +76,9 @@ let
         }
         if [[ -e "$out/etc" ]]; then
           handleEtc "$out/etc/bash_completion.d" "$out/share/bash-completion/completions"
-          rmdir $out/etc || { echo "Installer tries to install to /etc: $(ls $out/etc)"; exit 1; }
+          # Newer Rust releases install target-spec-json-schema.json in etc/.
+          # Keep the directory in the sysroot so rustc can find the schema.
+          rmdir "$out/etc" 2>/dev/null || true
         fi
       '';
 
