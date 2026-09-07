@@ -8,14 +8,13 @@
   name = "overlay-example";
 
   buildInputs = with pkgs; [
-    gcc-xtensa-lx106-elf-bin
+    esp-idf-esp32
   ];
 
   phases = [ "installPhase" ];
 
   installPhase = ''
-    mkdir -p $out/bin
-    cp -r ${pkgs.gcc-xtensa-lx106-elf-bin}/bin/* $out/bin/
-    echo 'Member of the nixpkgs-esp-dev-rust overlay.' > $out/README
+    mkdir -p $out
+    printf 'esp-idf version: %s\n' '${pkgs.esp-idf-esp32.version}' > $out/version.txt
   '';
 })

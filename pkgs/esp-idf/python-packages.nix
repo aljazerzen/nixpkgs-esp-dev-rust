@@ -19,8 +19,7 @@ rec {
       sha256 = "sha256-rHZHlvRKMZvvjf3S+nU2lCDXt0Ll4Ek04rdhtfIQ1R0=";
     };
 
-    pyproject = true;
-    build-system = [ setuptools ];
+    format = "setuptools";
     doCheck = false;
 
     propagatedBuildInputs = [
@@ -76,11 +75,11 @@ rec {
 
   esptool = buildPythonPackage rec {
     pname = "esptool";
-    version = "5.4.0";
+    version = "5.2.0";
 
     src = fetchPypi {
       inherit pname version;
-      sha256 = "sha256-/XVlmNsKJsmXX6GFEbCGh8VL8s5zIu3oDPH1EX2tH1A=";
+      sha256 = "sha256-nDVbfWMxzJKXnMcQrlxB9Zgw0eop7CTEZ8YAWgksBtY=";
     };
 
     pyproject = true;
@@ -90,10 +89,12 @@ rec {
     propagatedBuildInputs = [
       bitstring
       cryptography
-      ecdsa
       pyserial
       reedsolo
       pyyaml
+      intelhex
+      rich-click
+      click
     ];
 
     meta = {
