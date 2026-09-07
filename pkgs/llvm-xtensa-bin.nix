@@ -4,11 +4,11 @@
 , lib
 , fetchurl
 , makeWrapper
-, buildFHSUserEnv
+, buildFHSEnv
 }:
 
 let
-  fhsEnv = buildFHSUserEnv {
+  fhsEnv = buildFHSEnv {
     name = "xtensa-toolchain-env";
     targetPkgs = pkgs: with pkgs; [ zlib libxml2 ];
     runScript = "";

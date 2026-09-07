@@ -1,7 +1,7 @@
-{ stdenv, lib, fetchurl, makeWrapper, buildFHSUserEnv }:
+{ stdenv, lib, fetchurl, makeWrapper, buildFHSEnv }:
 
 let
-  fhsEnv = buildFHSUserEnv {
+  fhsEnv = buildFHSEnv {
     name = "esp8266-toolchain-env";
     targetPkgs = pkgs: with pkgs; [ ];
     runScript = "";
